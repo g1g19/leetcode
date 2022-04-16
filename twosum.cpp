@@ -40,7 +40,30 @@ public:
 
 		return result;	
 	}
-};
+
+	vector<int> twosumv2(vector<int> nums, int target)
+	{
+		unordered_map<int,int> hashmap;
+		vector<int> result;
+		
+		for(int i = 0; i < nums.size(); i++)
+		{
+			int search = target-nums[i];
+
+			if(hashmap.find(search) != hashmap.end())
+			{
+				//Found the match, prepare to return
+
+				result.push_back(i);
+				result.push_back(hashmap.at(search));
+				return result;			
+			}
+			
+			hashmap.insert(std::pair<int,int>(nums[i],i));
+		}
+		return result;
+	}
+}; 
 
 
 int main(void)
@@ -53,6 +76,13 @@ int main(void)
 	input.push_back(4);
 
 	vector<int> result = Sl.twosumv1(input, 6);
+
+	cout << "["<< result[0] << "," << result[1] << "]" << endl;
+
+	result.clear();
+
+
+	result = Sl.twosumv2(input, 6);
 
 	cout << "["<< result[0] << "," << result[1] << "]" << endl;
 
