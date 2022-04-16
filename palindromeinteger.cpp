@@ -6,6 +6,7 @@ using namespace std;
 class Solution
 {
 	public:
+		//Brute Force solution
 		bool isPalindrome(int x)
 		{
 			if(x < 0)
@@ -32,6 +33,24 @@ class Solution
 			}
 			
 			return true;
+		}
+
+		// Improvised
+	
+		bool isPalindromev2(int x)
+		{
+			if(x < 0) return false;
+
+			int temp = x;
+			unsigned int sum = 0;
+		
+			while( temp > 0)
+			{
+				sum = (sum*10) + (temp%10);
+				temp /= 10;	
+			}
+
+			return (sum == x);
 		}
 };
 
