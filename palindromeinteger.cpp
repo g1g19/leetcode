@@ -45,6 +45,8 @@ int main(void)
 
 	cout << "isPalindrome" << sl.isPalindrome(12321) << endl;
 
+	cout << "isPalindrome" << sl.isPalindrome(12345) << endl;
+
 	return 0;
 	
 }
